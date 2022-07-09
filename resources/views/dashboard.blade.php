@@ -4,26 +4,25 @@
 
 <main>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark" aria-label="Fourth navbar example">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#"><img src="images/logo.svg" width="30" height="30"> SRS Manager Tool</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarsExample04">
-          <ul class="navbar-nav me-auto mb-2 mb-md-0">
-              <a class="nav-link" href="{{ url("/contactus") }}">Contact us</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{ url('/logout') }}" id="logout">Logout</a>
-            </li>
-          </ul>
-
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"><img src="images/logo.svg" width="30" height="30"> SRS Manager Tool</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+  
+          <div class="collapse navbar-collapse" id="navbarsExample04">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                <a class="nav-link" href="{{ url("/contactus") }}">Contact us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url('/logout') }}" id="logout">Logout</a>
+              </li>
+            </ul>
+  
+          </div>
         </div>
-      </div>
-    </nav>
-
-
+      </nav>
+      
     <div class="container py-4">
       <div class="p-5 mb-4 bg-light rounded-3">
         <div class="container-fluid py-5">
@@ -38,7 +37,7 @@
           <div class="h-100 p-5 text-white bg-dark rounded-3">
             <h2>Create SRS document</h2>
             <p>Here you can create your srs document. Our tool guides you through all important points and allows you to review must, should, and could criteria. Your tutor will have access to your SRS document in order to track your progress.</p>
-            <button class="btn btn-outline-light" type="button">Start</button>
+            <button class="btn btn-outline-light" type="button" onclick="window.location='{{ url("start") }}'">Start</button>
           </div>
         </div>
         <div class="col-md-6">

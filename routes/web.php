@@ -25,3 +25,17 @@ Route::get('dashboard', [AuthController::class, 'dashboard']);
 
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
+
+Route::view('/', 'dashboard')->middleware('auth');
+
+// SRS creation
+Route::view('start', 'srs_creator')->middleware('auth');
+
+Route::view('editname', 'edit_p_name')->middleware('auth');
+Route::view('editdescription', 'edit_p_description')->middleware('auth');
+Route::view('editteam', 'edit_team')->middleware('auth');
+Route::view('editmust', 'edit_must')->middleware('auth');
+Route::view('editcould', 'edit_could')->middleware('auth');
+Route::view('editshould', 'edit_should')->middleware('auth');
+Route::view('editwont', 'edit_wont')->middleware('auth');
+Route::view('editscope', 'edit_p_scope')->middleware('auth');
