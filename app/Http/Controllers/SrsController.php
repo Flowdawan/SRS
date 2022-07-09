@@ -16,15 +16,11 @@ class SrsController extends Controller
     /**
      * Index
      *
-     * @return response()
+     * @return response|\Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function index()
     {
-        $project = DB::table('projects')
-            ->get()
-            ->where('userid', auth()->user()->id);
-
-        return view('srs_creator', compact($project));
+        return view('srs_creator');
     }
 
     /**
