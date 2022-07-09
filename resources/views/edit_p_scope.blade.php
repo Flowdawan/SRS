@@ -29,6 +29,8 @@
 <!-- SRS DOCUMENT -->
   <div class="container-lg">
     <div class="bg-transparent m-4 p-4">
+      <form action="{{ route('scope.post') }}" method="POST">
+        @csrf
         <h1 class="display-3">Project scope</h1>
         <p>What is project scope? Project scope is the part of project planning that involves determining and documenting a list of specific project goals, deliverables, tasks, costs and deadlines. The documentation of a project's scope is called a scope statement or terms of reference. It explains the boundaries of the project, establishes responsibilities for each team member and sets up procedures for how completed work will be verified and approved.</p>
         <p>Defining project scope requires input from the project stakeholders. They work with project managers to establish the key elements of budget, objectives, quality and timeline.</p>
@@ -59,10 +61,11 @@
                 <p></p>
               </div>
               <div class="col">
-                <button type="button" class="btn btn-secondary btn-sm">Save changes</button>
+                <button type="submit" class="btn btn-secondary btn-sm">Save changes</button>
               </div>
             </div>
           </div>
+        </form>
 
     </div>
 </div>

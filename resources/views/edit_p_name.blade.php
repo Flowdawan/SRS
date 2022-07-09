@@ -28,7 +28,7 @@
 <!-- SRS DOCUMENT -->
   <div class="container-lg">
     <div class="bg-transparent m-4 p-4">
-      <form action="{{ route('editname.post') }}" method="POST">
+      <form action="{{ route('projectname.post') }}" method="POST">
         @csrf
         <h1 class="display-3">Project name </h1>
         <p>“There are only two hard things in Computer Science: cache invalidation and naming things.” – Phil Karlton</p>

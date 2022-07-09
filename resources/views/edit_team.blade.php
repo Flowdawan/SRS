@@ -29,6 +29,8 @@
 <!-- SRS DOCUMENT -->
   <div class="container-lg">
     <div class="bg-transparent m-4 p-4">
+      <form action="{{ route('team.post') }}" method="POST">
+        @csrf
         <h1 class="display-3">Team members</h1>
         <p>Your team:</p>
         
@@ -59,7 +61,8 @@
                 <path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
               </svg>
           </button>
-          <button type="button" class="btn btn-secondary btn-sm">Save changes</button>
+          <button type="submit" class="btn btn-secondary btn-sm">Save changes</button>
+        </form>
 
     </div>
 </div>

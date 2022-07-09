@@ -27,6 +27,8 @@
 <!-- SRS DOCUMENT -->
   <div class="container-lg">
     <div class="bg-transparent m-4 p-4">
+      <form action="{{ route('description.post') }}" method="POST">
+        @csrf
         <h1 class="display-3">Project description</h1>
         <p>A project description is a high-level overview of why you're doing a project. The document explains a project's objectives and its essential qualities. Think of it as the elevator pitch that focuses on what and why without delving into how.</p>
         <p>The tricky part is figuring out what doesn’t belong in the project description. The description should focus on goals, objectives, and the overall approach, but you don’t need to include lists of tasks, an extensive background, or research analysis. In general, the project description is broad; you’ll include more detail in the project plan.</p>
@@ -57,10 +59,11 @@
                 <p></p>
               </div>
               <div class="col">
-                <button type="button" class="btn btn-secondary btn-sm">Save changes</button>
+                <button type="submit" class="btn btn-secondary btn-sm">Save changes</button>
               </div>
             </div>
           </div>
+        </form>
 
     </div>
 </div>

@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\SrsController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -39,3 +41,14 @@ Route::view('editcould', 'edit_could')->middleware('auth');
 Route::view('editshould', 'edit_should')->middleware('auth');
 Route::view('editwont', 'edit_wont')->middleware('auth');
 Route::view('editscope', 'edit_p_scope')->middleware('auth');
+
+
+// All project edit routes
+Route::post('post-projectname', [SrsController::class, 'store_name'])->name('projectname.post'); 
+Route::post('post-could', [SrsController::class, 'store_could'])->name('could.post'); 
+Route::post('post-must', [SrsController::class, 'store_must'])->name('must.post'); 
+Route::post('post-description', [SrsController::class, 'store_description'])->name('description.post'); 
+Route::post('post-scope', [SrsController::class, 'store_scope'])->name('scope.post'); 
+Route::post('post-should', [SrsController::class, 'store_should'])->name('should.post'); 
+Route::post('post-team', [SrsController::class, 'store_team'])->name('team.post'); 
+Route::post('post-wont', [SrsController::class, 'store_wont'])->name('wont.post'); 

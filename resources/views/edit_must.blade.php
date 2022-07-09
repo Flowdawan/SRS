@@ -27,6 +27,8 @@
 <!-- SRS DOCUMENT -->
   <div class="container-lg">
     <div class="bg-transparent m-4 p-4">
+      <form action="{{ route('must.post') }}" method="POST">
+        @csrf
         <h1 class="display-3">Must Requirements</h1>
         <p>The term MUST is used to define mandatory requirements. The defined requirement is mandatory. The fulfilling of the requirement in the product is mandatory. The acceptance of the product can be refused, if a MUST requirement has not been met.</p>
         
@@ -56,7 +58,8 @@
                 <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
               </svg>
           </button>
-          <button type="button" class="btn btn-secondary btn-sm">Save changes</button>
+          <button type="submit" class="btn btn-secondary btn-sm">Save changes</button>
+        </form>
 
     </div>
 </div>
