@@ -13,16 +13,32 @@ class CreateSrsTable extends Migration
      */
     public function up()
     {
-        Schema::create('srs', function (Blueprint $table) {
+        Schema::create('projects', function (Blueprint $table) {
             $table->id();
-            $table->string('userid')->nullable();
+            $table->string('userid')->unique();
             $table->string('name')->nullable();
             $table->string('description')->nullable();
-            $table->string('team')->nullable();
-            $table->string('must')->nullable();
-            $table->string('could')->nullable();
-            $table->string('should')->nullable();
-            $table->string('wont')->nullable();
+            
+            $table->string('team_1')->nullable();
+            $table->string('team_2')->nullable();
+            $table->string('team_3')->nullable();
+
+            $table->string('must_1')->nullable();
+            $table->string('must_2')->nullable();
+            $table->string('must_3')->nullable();
+
+            $table->string('could_1')->nullable();
+            $table->string('could_2')->nullable();
+            $table->string('could_3')->nullable();
+
+            $table->string('should_1')->nullable();
+            $table->string('should_2')->nullable();
+            $table->string('should_3')->nullable();
+
+            $table->string('wont_1')->nullable();
+            $table->string('wont_2')->nullable();
+            $table->string('wont_3')->nullable();
+
             $table->string('scope')->nullable();
             $table->timestamps();
         });

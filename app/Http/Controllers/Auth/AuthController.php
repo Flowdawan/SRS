@@ -3,11 +3,12 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Project;
+use App\Models\User;
+use Hash;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Session;
-use App\Models\User;
-use Hash;
 
 class AuthController extends Controller
 
@@ -24,7 +25,6 @@ class AuthController extends Controller
     }
 
 
-
     /**
      * Write code on Method
      *
@@ -34,7 +34,6 @@ class AuthController extends Controller
     {
         return view('auth.registration');
     }
-
 
 
     /**
@@ -60,7 +59,6 @@ class AuthController extends Controller
     }
 
 
-
     /**
      * Write code on Method
      *
@@ -79,26 +77,12 @@ class AuthController extends Controller
 
         $check = $this->create($data);
 
+        Project::create([
+            'userid' => auth()->user()->id
+        ]);
+
         return redirect("dashboard")->withSuccess('Great! You have Successfully loggedin');
     }
-
-
-
-    /**
-     * Write code on Method
-     *
-     * @return response()
-     */
-    public function dashboard()
-    {
-        if (Auth::check()) {
-
-            return view('dashboard');
-        }
-        return redirect("login")->withSuccess('Opps! You do not have access');
-    }
-
-
 
     /**
      * Write code on Method
@@ -114,6 +98,20 @@ class AuthController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password'])
         ]);
+    }
+
+    /**
+     * Write code on Method
+     *
+     * @return response()
+     */
+    public function dashboard()
+    {
+        if (Auth::check()) {
+
+            return view('dashboard');
+        }
+        return redirect("login")->withSuccess('Opps! You do not have access');
     }
 
     /**
