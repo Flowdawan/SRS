@@ -21,6 +21,9 @@
                 required
             />
             <label for="floatingInput">Email address</label>
+            @if ($errors->has('email'))
+                <span class="text-danger">{{ $errors->first('email') }}</span>
+            @endif
         </div>
         <div class="form-floating">
             <input
@@ -32,6 +35,9 @@
                 required
             />
             <label for="floatingInput">First name</label>
+            @if ($errors->has('firstname'))
+                <span class="text-danger">{{ $errors->first('firstname') }}</span>
+            @endif
         </div>
         <div class="form-floating">
             <input
@@ -43,6 +49,9 @@
                 required
             />
             <label for="floatingInput">Last name</label>
+            @if ($errors->has('lastname'))
+                <span class="text-danger">{{ $errors->first('lastname') }}</span>
+            @endif
         </div>
         <div class="form-floating">
             <input
@@ -55,6 +64,9 @@
                 required
             />
             <label for="floatingPassword">Password</label>
+            @if ($errors->has('password'))
+                <span class="text-danger">{{ $errors->first('password') }}</span>
+            @endif
         </div>
         <button type="submit" class="w-100 btn btn-lg btn-primary" id="register_btn">
             Register

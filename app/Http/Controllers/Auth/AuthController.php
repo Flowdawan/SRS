@@ -18,49 +18,32 @@ class AuthController extends Controller
      *
      * @return response()
      */
-
     public function index()
-
     {
-
         return view('auth.login');
     }
 
 
 
     /**
-
      * Write code on Method
-
      *
-
      * @return response()
-
      */
-
     public function registration()
-
     {
-
         return view('auth.registration');
     }
 
 
 
     /**
-
      * Write code on Method
-
      *
-
      * @return response()
-
      */
-
     public function postLogin(Request $request)
     {
-
-
         $request->validate([
             'email' => 'required',
             'password' => 'required',
@@ -69,54 +52,32 @@ class AuthController extends Controller
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
-
             return redirect()->intended('dashboard')
-
                 ->withSuccess('You have Successfully loggedin');
-        } else {
-            dump("Not so success");
-            die();
         }
 
-
-
-        return redirect("login")->withSuccess('Oppes! You have entered invalid credentials');
+        return redirect("login")->withSuccess('Opps! You have entered invalid credentials');
     }
 
 
 
     /**
-
      * Write code on Method
-
      *
-
      * @return response()
-
      */
-
     public function postRegistration(Request $request)
-
     {
-
         $request->validate([
-
             'firstname' => 'required',
             'lastname' => 'required',
-
             'email' => 'required|email|unique:users',
-
             'password' => 'required|min:6',
-
         ]);
-
-
 
         $data = $request->all();
 
         $check = $this->create($data);
-
-
 
         return redirect("dashboard")->withSuccess('Great! You have Successfully loggedin');
     }
@@ -124,74 +85,44 @@ class AuthController extends Controller
 
 
     /**
-
      * Write code on Method
-
      *
-
      * @return response()
-
      */
-
     public function dashboard()
-
     {
-
         if (Auth::check()) {
 
             return view('dashboard');
         }
-
-
-
         return redirect("login")->withSuccess('Opps! You do not have access');
     }
 
 
 
     /**
-
      * Write code on Method
-
      *
-
      * @return response()
-
      */
-
     public function create(array $data)
-
     {
-
         return User::create([
 
             'firstname' => $data['firstname'],
-
             'lastname' => $data['lastname'],
-
-
             'email' => $data['email'],
-
             'password' => Hash::make($data['password'])
-
         ]);
     }
 
-
-
     /**
-
      * Write code on Method
-
      *
-
      * @return response()
-
      */
-
     public function logout()
     {
-
         Session::flush();
 
         Auth::logout();

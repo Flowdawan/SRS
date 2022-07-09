@@ -8,6 +8,13 @@
 @section('content')
 
 <main class="form-signin">
+
+    @if (session('success'))
+        <div class="alert alert-success" role="alert">
+            {{ session('success') }}
+        </div>
+    @endif
+
     <form action="{{ route('login.post') }}" method="POST">
         @csrf
         <img class="mb-4" src="images/logo.svg" alt="" width="72" height="57" />
