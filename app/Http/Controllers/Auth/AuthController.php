@@ -75,11 +75,19 @@ class AuthController extends Controller
 
         $data = $request->all();
 
-        $check = $this->create($data);
+        User::create([
+            'firstname' => $data['firstname'],
+            'lastname' => $data['lastname'],
+            'email' => $data['email'],
+            'password' => Hash::make($data['password'])
+        ]);
+
+        auth()->attempt($request->only('email', 'password'));
 
         Project::create([
-            'userid' => auth()->user()->id
+            'userid' => Auth::id()
         ]);
+
 
         return redirect("dashboard")->withSuccess('Great! You have Successfully loggedin');
     }
@@ -92,12 +100,12 @@ class AuthController extends Controller
     public function create(array $data)
     {
         return User::create([
-
             'firstname' => $data['firstname'],
             'lastname' => $data['lastname'],
             'email' => $data['email'],
             'password' => Hash::make($data['password'])
         ]);
+
     }
 
     /**
@@ -108,7 +116,6 @@ class AuthController extends Controller
     public function dashboard()
     {
         if (Auth::check()) {
-
             return view('dashboard');
         }
         return redirect("login")->withSuccess('Opps! You do not have access');

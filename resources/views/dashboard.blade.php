@@ -1,7 +1,6 @@
 @extends('layout.app')
 
 @section('content')
-
     <main>
         <nav class="navbar navbar-expand-md navbar-dark bg-dark" aria-label="Fourth navbar example">
             <div class="container-fluid">
